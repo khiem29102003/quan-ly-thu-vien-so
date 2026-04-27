@@ -1,0 +1,137 @@
+{
+  "info": {
+    "name": "Library Management System API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Books",
+      "item": [
+        {
+          "name": "Get All Books",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8000/books"
+          }
+        },
+        {
+          "name": "Get Book Details",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8000/books/1"
+          }
+        },
+        {
+          "name": "Create Book",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8000/books",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {"key": "title", "value": "Test Book"},
+                {"key": "author", "value": "Test Author"},
+                {"key": "isbn", "value": "123-456-789"},
+                {"key": "category_id", "value": "1"},
+                {"key": "total_copies", "value": "5"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Search Books",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8000/books/search?q=tiểu thuyết"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AI Features",
+      "item": [
+        {
+          "name": "Get Recommendations",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8000/api/ai/recommendations/1"
+          }
+        },
+        {
+          "name": "Smart Search",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8000/api/ai/search",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"q\": \"khoa học\"}"
+            }
+          }
+        },
+        {
+          "name": "Get Reading Trends",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8000/api/ai/trends"
+          }
+        },
+        {
+          "name": "Categorize Book",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8000/api/ai/categorize",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"description\": \"Một cuốn sách về khoa học công nghệ\"}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Borrows",
+      "item": [
+        {
+          "name": "Get All Borrows",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8000/borrows"
+          }
+        },
+        {
+          "name": "Create Borrow",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8000/borrows",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {"key": "user_id", "value": "1"},
+                {"key": "book_id", "value": "1"}
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8000/users"
+          }
+        },
+        {
+          "name": "Get User Details",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8000/users/1"
+          }
+        }
+      ]
+    }
+  ]
+}

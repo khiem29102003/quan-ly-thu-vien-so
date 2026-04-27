@@ -1,0 +1,80 @@
+<?php $__env->startSection('title', 'Chi Tiết Nhật Ký'); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="container">
+    <h2>🔍 Chi Tiết Nhật Ký Hoạt Động</h2>
+    
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <h5>Thông Tin Chung</h5>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th width="30%">Thời Gian</th>
+                            <td><?php echo e($log->created_at->format('d/m/Y H:i:s')); ?></td>
+                        </tr>
+                        <tr>
+                            <th>Loại Hoạt Động</th>
+                            <td><?php echo e(ucfirst($log->log_name)); ?></td>
+                        </tr>
+                        <tr>
+                            <th>Sự Kiện</th>
+                            <td>
+                                <?php if($log->event == 'created'): ?>
+                                    <span class="badge bg-success">Tạo Mới</span>
+                                <?php elseif($log->event == 'updated'): ?>
+                                    <span class="badge bg-warning">Cập Nhật</span>
+                                <?php elseif($log->event == 'deleted'): ?>
+                                    <span class="badge bg-danger">Xóa</span>
+                                <?php endif; ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Mô Tả</th>
+                            <td><?php echo e($log->description); ?></td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="col-md-6">
+                    <h5>Thông Tin Người Thực Hiện</h5>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th width="30%">Người Thực Hiện</th>
+                            <td><?php echo e($log->causer ? $log->causer->name : 'System'); ?></td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td><?php echo e($log->causer ? $log->causer->email : 'N/A'); ?></td>
+                        </tr>
+                        <tr>
+                            <th>IP Address</th>
+                            <td><?php echo e($log->ip_address); ?></td>
+                        </tr>
+                        <tr>
+                            <th>User Agent</th>
+                            <td><small><?php echo e($log->user_agent); ?></small></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <?php if($log->properties): ?>
+            <div class="row">
+                <div class="col-12">
+                    <h5>Chi Tiết Dữ Liệu</h5>
+                    <pre class="bg-light p-3 rounded" style="max-height: 400px; overflow-y: auto;"><?php echo e(json_encode($log->properties, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)); ?></pre>
+                </div>
+            </div>
+            <?php endif; ?>
+            
+            <div class="mt-3">
+                <a href="<?php echo e(route('activity-logs.index')); ?>" class="btn btn-secondary">← Quay Lại</a>
+            </div>
+        </div>
+    </div>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\QLTV\resources\views/activity_logs/show.blade.php ENDPATH**/ ?>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Quản Lý Thư Viện</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            max-width: 500px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+        
+        p {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 0.5rem;
+            transition: transform 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .features {
+            text-align: left;
+            margin: 2rem 0;
+        }
+        
+        .features li {
+            list-style: none;
+            padding: 0.5rem 0;
+            color: #374151;
+        }
+        
+        .features li:before {
+            content: "✓ ";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Quản Lý Thư Viện</h1>
+        <p>Hệ thống quản lý thư viện hiện đại với hỗ trợ AI</p>
+        
+        <div class="features">
+            <ul>
+                <li>Quản lý sách và danh mục</li>
+                <li>Quản lý phiếu mượn và trả sách</li>
+                <li>Quản lý người dùng</li>
+                <li>Gợi ý sách thông minh (AI)</li>
+                <li>Phân tích xu hướng đọc</li>
+                <li>Tính phí quá hạn tự động</li>
+            </ul>
+        </div>
+        
+        <p style="margin-top: 2rem;">Vui lòng chạy ứng dụng bằng lệnh:</p>
+        <code style="background: #f3f4f6; padding: 0.5rem 1rem; border-radius: 5px; display: block; margin: 1rem 0;">php artisan serve</code>
+        
+        <p>Sau đó truy cập: <strong>http://localhost:8000</strong></p>
+        
+        <button onclick="location.href='/'" class="btn">Vào Ứng Dụng →</button>
+    </div>
+</body>
+</html>
